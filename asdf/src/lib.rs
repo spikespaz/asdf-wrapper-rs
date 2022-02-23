@@ -1,100 +1,56 @@
 //! **See the official documentation: <https://asdf-vm.com/manage/commands.html#all-commands>**
 //!
-//! # Formatted `asdf help`
+//! # Commands and Exports
+//!
 //! The content on the previously referenced page is copied (with visual separation) here for your convenience.
 //!
-//! ```help
-//! MANAGE PLUGINS
-//! asdf plugin add <name> [<git-url>]      Add a plugin from the plugin repo OR,
-//!                                         add a Git repo as a plugin by
-//!                                         specifying the name and repo url
+//! ## MANAGE PLUGINS
 //!
-//! asdf plugin list [--urls] [--refs]      List installed plugins. Optionally show
-//!                                         git urls and git-ref
+//! | Command and Exports | Description |
+//! | ------------------- | ----------- |
+//! | `asdf plugin add <name> [<git-url>]`    <br/><sub>[`asdf::plugins::add`],<br/>`asdf::prelude::asdf_plugin_add`</sub>               | Add a plugin from the plugin repo OR, add a Git repo as a plugin by specifying the name and repo url |
+//! | `asdf plugin list [--urls] [--refs]`    <br/><sub>[`asdf::plugins::list`],<br/>`asdf::prelude::asdf_plugin_list`</sub>             | List installed plugins. Optionally show git urls and git-ref                                         |
+//! | `asdf plugin list all`                  <br/><sub>[`asdf::plugins::list_all`],<br/>`asdf::prelude::asdf_plugin_list_all`</sub>     | List plugins registered on asdf-plugins repository with URLs                                         |
+//! | `asdf plugin remove <name>`             <br/><sub>[`asdf::plugins::remove`],<br/>`asdf::prelude::asdf_plugin_remove`</sub>         | Remove plugin and package versions                                                                   |
+//! | `asdf plugin update <name> [<git-ref>]` <br/><sub>[`asdf::plugins::update`],<br/>`asdf::prelude::asdf_plugin_update`</sub>         | Update a plugin to latest commit on default branch or a particular git-ref                           |
+//! | `asdf plugin update --all`              <br/><sub>[`asdf::plugins::update_all`],<br/>`asdf::prelude::asdf_plugin_update_all`</sub> | Update all plugins to latest commit on default branch                                                |
 //!
-//! asdf plugin list all                    List plugins registered on asdf-plugins
-//!                                         repository with URLs
+//! ## MANAGE PACKAGES
 //!
-//! asdf plugin remove <name>               Remove plugin and package versions
-//!
-//! asdf plugin update <name> [<git-ref>]   Update a plugin to latest commit on
-//!                                         default branch or a particular git-ref
-//!
-//! asdf plugin update --all                Update all plugins to latest commit on
-//!                                         default branch
-//!
-//!
-//! MANAGE PACKAGES
-//! asdf install                            Install all the package versions listed
-//!                                         in the .tool-versions file
-//!
-//! asdf install <name>                     Install one tool at the version
-//!                                         specified in the .tool-versions file
-//!
-//! asdf install <name> <version>           Install a specific version of a package
-//!
-//! asdf install <name> latest[:<version>]  Install the latest stable version of a
-//!                                         package, or with optional version,
-//!                                         install the latest stable version that
-//!                                         begins with the given string
-//!
-//! asdf uninstall <name> <version>         Remove a specific version of a package
-//!
-//! asdf current                            Display current version set or being
-//!                                         used for all packages
-//!
-//! asdf current <name>                     Display current version set or being
-//!                                         used for package
-//!
-//! asdf where <name> [<version>]           Display install path for an installed
-//!                                         or current version
-//!
-//! asdf which <command>                    Display the path to an executable
-//!
-//! asdf local <name> <version>             Set the package local version
-//!
-//! asdf local <name> latest[:<version>]    Set the package local version to the
-//!                                         latest provided version
-//!
-//! asdf global <name> <version>            Set the package global version
-//!
-//! asdf global <name> latest[:<version>]   Set the package global version to the
-//!                                         latest provided version
-//!
-//! asdf shell <name> <version>             Set the package version to
-//!                                         `ASDF_${LANG}_VERSION` in the current shell
-//!
-//! asdf latest <name> [<version>]          Show latest stable version of a package
-//!
-//! asdf latest --all                       Show latest stable version of all the
-//!                                         packages and if they are installed
-//!
-//! asdf list <name> [version]              List installed versions of a package and
-//!                                         optionally filter the versions
-//!
-//! asdf list all <name> [<version>]        List all versions of a package and
-//!                                         optionally filter the returned versions
-//!
-//! asdf help <name> [<version>]            Output documentation for plugin and tool
+//! | Command and Exports | Description |
+//! | ------------------- | ----------- |
+//! | `asdf install`                           <br/><sub>[`asdf::packages::install`],<br/>`asdf::prelude::asdf_install`</sub>       | Install all the package versions listed in the .tool-versions file                                                                            |
+//! | `asdf install <name>`                    <br/><sub>[`asdf::packages::install`],<br/>`asdf::prelude::asdf_install`</sub>       | Install one tool at the version specified in the .tool-versions file                                                                          |
+//! | `asdf install <name> <version>`          <br/><sub>[`asdf::packages::install`],<br/>`asdf::prelude::asdf_install`</sub>       | Install a specific version of a package                                                                                                       |
+//! | `asdf install <name> latest[:<version>]` <br/><sub>[`asdf::packages::install`],<br/>`asdf::prelude::asdf_install`</sub>       | Install the latest stable version of a package, or with optional version, install the latest stable version that begins with the given string |
+//! | `asdf uninstall <name> <version>`        <br/><sub>[`asdf::packages::uninstall`],<br/>`asdf::prelude::asdf_uninstall`</sub>   | Remove a specific version of a package                                                                                                        |
+//! | `asdf current`                           <br/><sub>[`asdf::packages::current`],<br/>`asdf::prelude::asdf_current`</sub>       | Display current version set or being used for all packages                                                                                    |
+//! | `asdf current <name>`                    <br/><sub>[`asdf::packages::current`],<br/>`asdf::prelude::asdf_current`</sub>       | Display current version set or being used for package                                                                                         |
+//! | `asdf where <name> [<version>]`          <br/><sub>[`asdf::packages::locate`],<br/>`asdf::prelude::asdf_where`</sub>          | Display install path for an installed or current version                                                                                      |
+//! | `asdf which <command>`                   <br/><sub>[`asdf::packages::which`],<br/>`asdf::prelude::asdf_which`</sub>           | Display the path to an executable                                                                                                             |
+//! | `asdf local <name> <version>`            <br/><sub>[`asdf::packages::local`],<br/>`asdf::prelude::asdf_local`</sub>           | Set the package local version                                                                                                                 |
+//! | `asdf local <name> latest[:<version>]`   <br/><sub>[`asdf::packages::local`],<br/>`asdf::prelude::asdf_local`</sub>           | Set the package local version to the latest provided version                                                                                  |
+//! | `asdf global <name> <version>`           <br/><sub>[`asdf::packages::global`],<br/>`asdf::prelude::asdf_global`</sub>         | Set the package global version                                                                                                                |
+//! | `asdf global <name> latest[:<version>]`  <br/><sub>[`asdf::packages::global`],<br/>`asdf::prelude::asdf_global`</sub>         | Set the package global version to the latest provided version                                                                                 |
+//! | `asdf shell <name> <version>`            <br/><sub>[`asdf::packages::shell`],<br/>`asdf::prelude::asdf_shell`</sub>           | Set the package version to `ASDF_${LANG}_VERSION` in the current shell                                                                        |
+//! | `asdf latest <name> [<version>]`         <br/><sub>[`asdf::packages::latest`],<br/>`asdf::prelude::asdf_latest`</sub>         | Show latest stable version of a package                                                                                                       |
+//! | `asdf latest --all`                      <br/><sub>[`asdf::packages::latest_all`],<br/>`asdf::prelude::asdf_latest_all`</sub> | Show latest stable version of all the packages and if they are installed                                                                      |
+//! | `asdf list <name> [version]`             <br/><sub>[`asdf::packages::list`],<br/>`asdf::prelude::asdf_list`</sub>             | List installed versions of a package and optionally filter the versions                                                                       |
+//! | `asdf list all <name> [<version>]`       <br/><sub>[`asdf::packages::list_all`],<br/>`asdf::prelude::asdf_list_all`</sub>     | List all versions of a package and optionally filter the returned versions                                                                    |
+//! | `asdf help <name> [<version>]`           <br/><sub>[`asdf::utils::help`],<br/>`asdf::prelude::asdf_help`</sub>                | Output documentation for plugin and tool                                                                                                      |
 //!
 //!
-//! UTILS
-//! asdf exec <command> [args...]           Executes the command shim for current version
+//! ## UTILS
 //!
-//! asdf env <command> [util]               Runs util (default: `env`) inside the
-//!                                         environment used for command shim execution.
-//!
-//! asdf info                               Print OS, Shell and ASDF debug information.
-//!
-//! asdf reshim <name> <version>            Recreate shims for version of a package
-//!
-//! asdf shim-versions <command>            List the plugins and versions that
-//!                                         provide a command
-//!
-//! asdf update                             Update asdf to the latest stable release
-//!
-//! asdf update --head                      Update asdf to the latest on the master branch
-//! ```
+//! | Command and Exports | Description |
+//! | ------------------- | ----------- |
+//! | `asdf exec <command> [args...]` <br/><sub>[`asdf::utils::exec`],<br/>`asdf::prelude::asdf_exec`</sub>                   | Executes the command shim for current version                                     |
+//! | `asdf env <command> [util]`     <br/><sub>[`asdf::utils::env`],<br/>`asdf::prelude::asdf_env`</sub>                     | Runs util (default: `env`) inside the environment used for command shim execution |
+//! | `asdf info`                     <br/><sub>[`asdf::utils::info`],<br/>`asdf::prelude::asdf_info`</sub>                   | Print OS, Shell and ASDF debug information                                        |
+//! | `asdf reshim <name> <version>`  <br/><sub>[`asdf::utils::reshim`],<br/>`asdf::prelude::asdf_reshim`</sub>               | Recreate shims for version of a package                                           |
+//! | `asdf shim-versions <command>`  <br/><sub>[`asdf::utils::shim_versions`],<br/>`asdf::prelude::asdf_shim_versions`</sub> | List the plugins and versions that provide a command                              |
+//! | `asdf update`                   <br/><sub>[`asdf::utils::update`],<br/>`asdf::prelude::asdf_update`</sub>               | Update asdf to the latest stable release                                          |
+//! | `asdf update --head`            <br/><sub>[`asdf::utils::update`],<br/>`asdf::prelude::asdf_update`</sub>               | Update asdf to the latest on the master branch                                    |
 
 pub mod asdf;
 
