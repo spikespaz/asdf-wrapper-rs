@@ -1,4 +1,14 @@
+//! All `asdf` commands have been separated into modules based on how the help output categorizes them.
+//!
 //! **See the official documentation: <https://asdf-vm.com/manage/commands.html#all-commands>**
+//!
+//! ## Note:
+//!
+//! There are two important differences between how they are categorized by the help output and this crate.
+//!
+//! - The `asdf help` command is provided by [`asdf::utils::help`] rather than `asdf::packages::help` as the documentation would suggest.
+//! - Due to `where` being a Rust keyword, the `asdf which` command is provided by [`asdf::packages::locate`].
+//!   - This is unless you use the flat API, in which case it is re-exported to `asdf::prelude::asdf_where`.
 //!
 //! # Commands and Exports
 //!
