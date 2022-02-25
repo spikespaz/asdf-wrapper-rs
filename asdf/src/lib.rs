@@ -62,9 +62,9 @@
 //! | `asdf update`                   <br/><sub>[`asdf::utils::update`],<br/>`asdf::prelude::asdf_update`</sub>               | Update asdf to the latest stable release                                          |
 //! | `asdf update --head`            <br/><sub>[`asdf::utils::update`],<br/>`asdf::prelude::asdf_update`</sub>               | Update asdf to the latest on the master branch                                    |
 
-pub mod asdf;
+mod asdf;
 
-pub use self::asdf::{packages, plugins, utils};
+pub use self::asdf::*;
 
 /// The 'prelude' module can be imported as `use asdf::prelude::*` if you want access to a flat API.
 /// The functions are renamed according to the corresponding command, formatted in `snake_case`.
